@@ -29,19 +29,33 @@ form {
   font-family: "Inter";
 }
 
-.messageTimers {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 100%;
-  gap: 8px;
-  font-family: "Inter";
-}
-
-.messageContainer > div {
+/* .messageContainer > div {
   background-color: burlywood;
   padding: 2px 8px;
   border-radius: 8px;
+} */
+
+.messageWrapper {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+}
+
+.elementMessage {
+  color: white;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.timerMessage {
+  display: flex;
+  background-color: white;
+  padding: 2px 8px;
+  border-radius: 8px;
+  align-self: flex-end;
+  justify-content: center;
+  font-size: 13px;
 }
 
 .message {
