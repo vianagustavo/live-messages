@@ -19,6 +19,7 @@ form {
   background-color: beige;
   border-radius: 8px;
   display: flex;
+  align-items: center;
   gap: 5px;
 }
 
@@ -27,6 +28,16 @@ label {
   font-size: 13px;
   display: flex;
   align-items: center;
+}
+
+button[type="submit"] {
+  width: 50px;
+  height: 30px;
+  background-image: url("../images/1000_F_398694799_MyYmDtNHcFEfDrCipKwnpgpM04WCSYCf.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
 }
 
 .messageContainer {

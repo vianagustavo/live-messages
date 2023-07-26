@@ -1,4 +1,5 @@
 const input = document.getElementById("message");
+const senderName = document.getElementById("senderName");
 const messageContainer = document.getElementById("messageContainer");
 const checkBox = document.getElementById("me");
 
@@ -13,12 +14,23 @@ document.querySelector("form").addEventListener("submit", function (e) {
     const messageObj = {
       text: messageText,
       fromMe: checkBox.checked,
+      sender: senderName.value,
     };
+
+    console.log({ messageObj });
     messages.push(messageObj);
 
     displayMessages();
 
     input.value = "";
+  }
+});
+
+checkBox.addEventListener("change", function () {
+  if (checkBox.checked) {
+    senderName.disabled = true;
+  } else {
+    senderName.disabled = false;
   }
 });
 
@@ -45,6 +57,25 @@ function displayMessages() {
     messageWrapper.appendChild(elementMessageDiv);
     messageWrapper.appendChild(timerMessageDiv);
 
+    createSenderMessage(messageOrigin, messageObj);
     messageContainer.appendChild(messageWrapper);
   });
+}
+
+function createSenderMessage(messageOrigin, messageObj) {
+  if (messageOrigin === "sender") {
+    const senderMessageDiv = document.createElement("div");
+    senderMessageDiv.textContent = messageObj.sender;
+    senderMessageDiv.setAttribute("class", `${messageOrigin}TimerMessage`);
+
+    const messageWrapper = document.createElement("div");
+    messageWrapper.setAttribute("class", `${messageOrigin}MessageWrapper`);
+    messageWrapper.appendChild(senderMessageDiv);
+
+    messageContainer.appendChild(messageWrapper);
+
+    // return senderMessageDiv;
+  }
+
+  return;
 }
